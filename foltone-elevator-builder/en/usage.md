@@ -4,7 +4,7 @@ description: "Elevator Builder script usage guide"
 script: "foltone-elevator-builder"
 section: "foltone_elevator_builder"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Usage — foltone_elevator_builder
@@ -24,11 +24,12 @@ Type `/fab` in chat to open the admin NUI menu.
 1. Open the admin menu (`/fab`)
 2. Click **"Create an elevator"**
 3. Set the **elevator name**
-4. Choose the **number of floors** (1 to 9)
+4. Choose the **number of floors** (1 to 20)
 5. For each floor:
    - Click **"Set name"** and enter the name (e.g., "Ground Floor", "Floor 1", "Roof")
    - Click **"Set position"** — the menu closes, your current position is recorded
-6. Click **"Create the elevator"** to confirm
+6. Customize the **elevator style** (panel accent color, scale, side, marker appearance)
+7. Click **"Create the elevator"** to confirm
 
 > Green preview markers appear during creation to verify positions.
 
@@ -43,9 +44,21 @@ Type `/fab` in chat to open the admin NUI menu.
    - **Delete a floor** — Select the floor, then click "Delete"
    - **Delete the elevator** — Removes the elevator and all its floors
 
+### Customizing Elevator Style
+
+During creation or editing, you can customize each elevator's appearance:
+
+- **Panel accent color** (RGB) — the accent color of the elevator NUI panel
+- **Panel scale** — size of the panel (0.7 to 1.3)
+- **Panel side** — display on the left or right of the screen
+- **Marker type, scale, color, alpha** — appearance of the floor markers
+- **Marker bob/spin** — animation options
+
+A live preview is displayed as you adjust the settings.
+
 ### Configuration Panel
 
-From the admin menu, access the configuration panel to modify in real-time:
+From the admin menu, access the configuration panel to modify global settings in real-time:
 
 - Marker color and type
 - Render and interaction distances
@@ -59,7 +72,7 @@ Changes are applied immediately for all players.
 
 ### Without ox_target (E key)
 
-1. Walk up to an elevator marker (configurable distance, default 1.0m)
+1. Walk up to an elevator marker (configurable distance, default 3.5m)
 2. The text **"Press E to access the elevator"** appears
 3. Press **E**
 4. The elevator NUI panel opens, showing the current floor and available floors
@@ -104,10 +117,27 @@ Elevators are saved in the `json/data.json` file. This file is automatically rea
         "floors": [
             { "idEtage": 1, "name": "Ground Floor", "position": { "x": 0.0, "y": 0.0, "z": 0.0 } },
             { "idEtage": 2, "name": "Floor 1", "position": { "x": 0.0, "y": 0.0, "z": 10.0 } }
-        ]
+        ],
+        "style": {
+            "panel_accent_r": 255,
+            "panel_accent_g": 180,
+            "panel_accent_b": 0,
+            "panel_scale": 1,
+            "panel_side": "right",
+            "marker_type": 25,
+            "marker_scale": 0.8,
+            "marker_red": 114,
+            "marker_green": 204,
+            "marker_blue": 114,
+            "marker_alpha": 180,
+            "marker_bob": false,
+            "marker_spin": true
+        }
     }
 ]
 ```
+
+Each elevator stores its own `style` object containing panel and marker customization. If not specified, the global `Config.lua` defaults are used.
 
 ## Available Exports
 

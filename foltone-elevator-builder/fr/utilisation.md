@@ -4,7 +4,7 @@ description: "Guide d'utilisation du script Elevator Builder"
 script: "foltone-elevator-builder"
 section: "foltone_elevator_builder"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Utilisation — foltone_elevator_builder
@@ -24,11 +24,12 @@ Tapez `/fab` dans le chat pour ouvrir le menu d'administration NUI.
 1. Ouvrez le menu admin (`/fab`)
 2. Cliquez sur **"Créer un ascenseur"**
 3. Définissez le **nom de l'ascenseur**
-4. Choisissez le **nombre d'étages** (1 à 9)
+4. Choisissez le **nombre d'étages** (1 à 20)
 5. Pour chaque étage :
    - Cliquez sur **"Définir le nom"** et saisissez le nom (ex: "RDC", "Étage 1", "Toit")
    - Cliquez sur **"Définir la position"** — le menu se ferme, votre position actuelle est enregistrée
-6. Cliquez sur **"Créer l'ascenseur"** pour valider
+6. Personnalisez le **style de l'ascenseur** (couleur d'accent du panneau, échelle, côté, apparence du marqueur)
+7. Cliquez sur **"Créer l'ascenseur"** pour valider
 
 > Les marqueurs de prévisualisation s'affichent en vert pendant la création pour vérifier les positions.
 
@@ -43,9 +44,21 @@ Tapez `/fab` dans le chat pour ouvrir le menu d'administration NUI.
    - **Supprimer un étage** — Sélectionnez l'étage, puis cliquez sur "Supprimer"
    - **Supprimer l'ascenseur** — Supprime l'ascenseur et tous ses étages
 
+### Personnalisation du style de l'ascenseur
+
+Lors de la création ou de la modification, vous pouvez personnaliser l'apparence de chaque ascenseur :
+
+- **Couleur d'accent du panneau** (RGB) — la couleur d'accentuation du panneau NUI
+- **Échelle du panneau** — taille du panneau (0.7 à 1.3)
+- **Côté du panneau** — affichage à gauche ou à droite de l'écran
+- **Type, échelle, couleur, opacité du marqueur** — apparence des marqueurs d'étage
+- **Rebond/Rotation du marqueur** — options d'animation
+
+Un aperçu en temps réel s'affiche pendant les réglages.
+
 ### Panneau de configuration
 
-Depuis le menu admin, accédez au panneau de configuration pour modifier en temps réel :
+Depuis le menu admin, accédez au panneau de configuration pour modifier les paramètres globaux en temps réel :
 
 - Couleur et type du marqueur
 - Distances de rendu et d'interaction
@@ -59,7 +72,7 @@ Les changements sont appliqués immédiatement pour tous les joueurs.
 
 ### Sans ox_target (touche E)
 
-1. Approchez-vous d'un marqueur d'ascenseur (distance configurable, par défaut 1.0m)
+1. Approchez-vous d'un marqueur d'ascenseur (distance configurable, par défaut 3.5m)
 2. Le texte **"Appuyez sur E pour accéder à l'ascenseur"** s'affiche
 3. Appuyez sur **E**
 4. Le panneau d'ascenseur NUI s'ouvre, affichant l'étage actuel et les étages disponibles
@@ -104,10 +117,27 @@ Les ascenseurs sont sauvegardés dans le fichier `json/data.json`. Ce fichier es
         "floors": [
             { "idEtage": 1, "name": "RDC", "position": { "x": 0.0, "y": 0.0, "z": 0.0 } },
             { "idEtage": 2, "name": "Étage 1", "position": { "x": 0.0, "y": 0.0, "z": 10.0 } }
-        ]
+        ],
+        "style": {
+            "panel_accent_r": 255,
+            "panel_accent_g": 180,
+            "panel_accent_b": 0,
+            "panel_scale": 1,
+            "panel_side": "right",
+            "marker_type": 25,
+            "marker_scale": 0.8,
+            "marker_red": 114,
+            "marker_green": 204,
+            "marker_blue": 114,
+            "marker_alpha": 180,
+            "marker_bob": false,
+            "marker_spin": true
+        }
     }
 ]
 ```
+
+Chaque ascenseur stocke son propre objet `style` contenant la personnalisation du panneau et du marqueur. Si non spécifié, les valeurs par défaut de `Config.lua` sont utilisées.
 
 ## Exports disponibles
 

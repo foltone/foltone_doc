@@ -4,7 +4,7 @@ description: "Guía de instalación del script Elevator Builder"
 script: "foltone-elevator-builder"
 section: "foltone_elevator_builder"
 order: 1
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Instalación — foltone_elevator_builder

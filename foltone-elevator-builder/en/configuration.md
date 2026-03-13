@@ -4,7 +4,7 @@ description: "Elevator Builder script configuration guide"
 script: "foltone-elevator-builder"
 section: "foltone_elevator_builder"
 order: 2
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Configuration — foltone_elevator_builder
@@ -24,30 +24,32 @@ Three languages are included: French, English and Spanish. Translations are in t
 The marker indicates floor positions to players.
 
 ```lua
-Config.marker_type = 20
+Config.marker_type = 25
+Config.marker_scale = 0.8
 Config.marker_red = 114
 Config.marker_green = 204
 Config.marker_blue = 114
-Config.marker_alpha = 250
-Config.marker_scaleX = 1.0
-Config.marker_scaleY = 1.0
-Config.marker_scaleZ = 1.0
+Config.marker_alpha = 180
+Config.marker_bob = false
+Config.marker_spin = true
 ```
 
 | Parameter | Description |
 |-----------|-------------|
-| `marker_type` | GTA V marker type (see [FiveM wiki](https://docs.fivem.net/docs/game-references/markers/)) |
+| `marker_type` | GTA V marker type (see [FiveM wiki](https://docs.fivem.net/docs/game-references/markers/)) — supported types: 1, 2, 6, 20, 25, 27, 29 |
+| `marker_scale` | Marker size |
 | `marker_red/green/blue` | Marker RGB color |
 | `marker_alpha` | Opacity (0-255) |
-| `marker_scaleX/Y/Z` | Marker size |
+| `marker_bob` | Enable/disable bouncing animation |
+| `marker_spin` | Enable/disable rotation animation |
 
-Advanced parameters are also available: `marker_dirX/Y/Z`, `marker_rotX/Y/Z`, `marker_bobUpAndDown`, `marker_faceCamera`, `marker_rotate`.
+> Each elevator can also have its own custom marker style, configured via the admin menu during creation or editing.
 
 ## Distances
 
 ```lua
 Config.marker_render_distance = 10.0
-Config.interaction_distance = 1.0
+Config.interaction_distance = 3.5
 ```
 
 | Parameter | Description |
@@ -103,6 +105,26 @@ Sounds played:
 - **Ding** — On floor arrival
 - **Doors** — On panel open/close
 - **Movement** — During floor transition
+
+## Panel Appearance
+
+Customize the elevator panel UI displayed to players.
+
+```lua
+Config.panel_accent_r = 255
+Config.panel_accent_g = 180
+Config.panel_accent_b = 0
+Config.panel_scale = 1.0
+Config.panel_side = 'right'
+```
+
+| Parameter | Description |
+|-----------|-------------|
+| `panel_accent_r/g/b` | Accent color of the elevator panel (RGB) — default is gold |
+| `panel_scale` | Panel size multiplier (recommended range: 0.7 to 1.3) |
+| `panel_side` | Panel position on screen: `'left'` or `'right'` |
+
+> Each elevator can have its own custom panel style, configured during creation or editing.
 
 ## In-Game Configuration Panel
 

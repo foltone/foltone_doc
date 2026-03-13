@@ -4,7 +4,7 @@ description: "Guía de uso del script Elevator Builder"
 script: "foltone-elevator-builder"
 section: "foltone_elevator_builder"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Uso — foltone_elevator_builder
@@ -24,11 +24,12 @@ Escribe `/fab` en el chat para abrir el menú de administración NUI.
 1. Abre el menú de administración (`/fab`)
 2. Haz clic en **"Crear un ascensor"**
 3. Define el **nombre del ascensor**
-4. Elige el **número de pisos** (1 a 9)
+4. Elige el **número de pisos** (1 a 20)
 5. Para cada piso:
    - Haz clic en **"Definir nombre"** e introduce el nombre (ej: "Planta Baja", "Piso 1", "Azotea")
    - Haz clic en **"Definir posición"** — el menú se cierra, tu posición actual se registra
-6. Haz clic en **"Crear el ascensor"** para confirmar
+6. Personaliza el **estilo del ascensor** (color de acento del panel, escala, lado, apariencia del marcador)
+7. Haz clic en **"Crear el ascensor"** para confirmar
 
 > Los marcadores de previsualización aparecen en verde durante la creación para verificar las posiciones.
 
@@ -43,9 +44,21 @@ Escribe `/fab` en el chat para abrir el menú de administración NUI.
    - **Eliminar un piso** — Selecciona el piso, luego haz clic en "Eliminar"
    - **Eliminar el ascensor** — Elimina el ascensor y todos sus pisos
 
+### Personalización del estilo del ascensor
+
+Durante la creación o edición, puedes personalizar la apariencia de cada ascensor:
+
+- **Color de acento del panel** (RGB) — el color de acento del panel NUI
+- **Escala del panel** — tamaño del panel (0.7 a 1.3)
+- **Lado del panel** — mostrar a la izquierda o derecha de la pantalla
+- **Tipo, escala, color, opacidad del marcador** — apariencia de los marcadores de piso
+- **Rebote/Rotación del marcador** — opciones de animación
+
+Se muestra una vista previa en tiempo real mientras ajustas la configuración.
+
 ### Panel de configuración
 
-Desde el menú de administración, accede al panel de configuración para modificar en tiempo real:
+Desde el menú de administración, accede al panel de configuración para modificar los ajustes globales en tiempo real:
 
 - Color y tipo del marcador
 - Distancias de renderizado e interacción
@@ -59,7 +72,7 @@ Los cambios se aplican inmediatamente para todos los jugadores.
 
 ### Sin ox_target (tecla E)
 
-1. Acércate a un marcador de ascensor (distancia configurable, por defecto 1.0m)
+1. Acércate a un marcador de ascensor (distancia configurable, por defecto 3.5m)
 2. El texto **"Pulse E para acceder al ascensor"** aparece
 3. Presiona **E**
 4. El panel de ascensor NUI se abre, mostrando el piso actual y los pisos disponibles
@@ -104,10 +117,27 @@ Los ascensores se guardan en el archivo `json/data.json`. Este archivo es leído
         "floors": [
             { "idEtage": 1, "name": "Planta Baja", "position": { "x": 0.0, "y": 0.0, "z": 0.0 } },
             { "idEtage": 2, "name": "Piso 1", "position": { "x": 0.0, "y": 0.0, "z": 10.0 } }
-        ]
+        ],
+        "style": {
+            "panel_accent_r": 255,
+            "panel_accent_g": 180,
+            "panel_accent_b": 0,
+            "panel_scale": 1,
+            "panel_side": "right",
+            "marker_type": 25,
+            "marker_scale": 0.8,
+            "marker_red": 114,
+            "marker_green": 204,
+            "marker_blue": 114,
+            "marker_alpha": 180,
+            "marker_bob": false,
+            "marker_spin": true
+        }
     }
 ]
 ```
+
+Cada ascensor almacena su propio objeto `style` con la personalización del panel y del marcador. Si no se especifica, se utilizan los valores por defecto de `Config.lua`.
 
 ## Exports disponibles
 

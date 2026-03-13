@@ -4,7 +4,7 @@ description: "Configuration du script Elevator Builder"
 script: "foltone-elevator-builder"
 section: "foltone_elevator_builder"
 order: 2
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Configuration — foltone_elevator_builder
@@ -24,30 +24,32 @@ Trois langues sont incluses : français, anglais et espagnol. Les traductions so
 Le marqueur indique les positions d'étages aux joueurs.
 
 ```lua
-Config.marker_type = 20
+Config.marker_type = 25
+Config.marker_scale = 0.8
 Config.marker_red = 114
 Config.marker_green = 204
 Config.marker_blue = 114
-Config.marker_alpha = 250
-Config.marker_scaleX = 1.0
-Config.marker_scaleY = 1.0
-Config.marker_scaleZ = 1.0
+Config.marker_alpha = 180
+Config.marker_bob = false
+Config.marker_spin = true
 ```
 
 | Paramètre | Description |
 |-----------|-------------|
-| `marker_type` | Type de marqueur GTA V (voir [wiki FiveM](https://docs.fivem.net/docs/game-references/markers/)) |
+| `marker_type` | Type de marqueur GTA V (voir [wiki FiveM](https://docs.fivem.net/docs/game-references/markers/)) — types supportés : 1, 2, 6, 20, 25, 27, 29 |
+| `marker_scale` | Taille du marqueur |
 | `marker_red/green/blue` | Couleur RGB du marqueur |
 | `marker_alpha` | Opacité (0-255) |
-| `marker_scaleX/Y/Z` | Taille du marqueur |
+| `marker_bob` | Active/désactive l'animation de rebond |
+| `marker_spin` | Active/désactive l'animation de rotation |
 
-Des paramètres avancés sont aussi disponibles : `marker_dirX/Y/Z`, `marker_rotX/Y/Z`, `marker_bobUpAndDown`, `marker_faceCamera`, `marker_rotate`.
+> Chaque ascenseur peut également avoir son propre style de marqueur personnalisé, configurable via le menu admin lors de la création ou de la modification.
 
 ## Distances
 
 ```lua
 Config.marker_render_distance = 10.0
-Config.interaction_distance = 1.0
+Config.interaction_distance = 3.5
 ```
 
 | Paramètre | Description |
@@ -103,6 +105,26 @@ Sons joués :
 - **Ding** — À l'arrivée à l'étage
 - **Portes** — À l'ouverture/fermeture du panneau
 - **Déplacement** — Pendant la transition entre étages
+
+## Apparence du panneau
+
+Personnalisez l'interface du panneau d'ascenseur affichée aux joueurs.
+
+```lua
+Config.panel_accent_r = 255
+Config.panel_accent_g = 180
+Config.panel_accent_b = 0
+Config.panel_scale = 1.0
+Config.panel_side = 'right'
+```
+
+| Paramètre | Description |
+|-----------|-------------|
+| `panel_accent_r/g/b` | Couleur d'accentuation du panneau d'ascenseur (RGB) — doré par défaut |
+| `panel_scale` | Multiplicateur de taille du panneau (plage recommandée : 0.7 à 1.3) |
+| `panel_side` | Position du panneau à l'écran : `'left'` ou `'right'` |
+
+> Chaque ascenseur peut avoir son propre style de panneau personnalisé, configurable lors de la création ou de la modification.
 
 ## Panneau de configuration en jeu
 
