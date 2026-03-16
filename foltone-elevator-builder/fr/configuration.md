@@ -2,7 +2,7 @@
 title: "Configuration"
 description: "Configuration du script Elevator Builder"
 script: "foltone-elevator-builder"
-section: "foltone_elevator_builder"
+section: "Elevator Builder"
 order: 2
 version: "1.1.0"
 ---
@@ -55,20 +55,25 @@ Config.interaction_distance = 3.5
 | Paramètre | Description |
 |-----------|-------------|
 | `marker_render_distance` | Distance (en mètres) à laquelle le marqueur est affiché |
-| `interaction_distance` | Distance à laquelle le joueur peut interagir (touche E ou ox_target) |
+| `interaction_distance` | Distance à laquelle le joueur peut interagir (touche E ou système de ciblage) |
 
-## Système de ciblage (ox_target)
+## Système de ciblage
 
 ```lua
-Config.use_target = false
+Config.use_target = 'auto'
 ```
 
 | Valeur | Comportement |
 |--------|-------------|
-| `false` | Interaction via la **touche E** (comportement par défaut) |
-| `true` | Interaction via **ox_target** (nécessite ox_target installé) |
+| `'auto'` | **Détection automatique** — utilise le premier système de ciblage disponible (comportement par défaut) |
+| `'ox_target'` | Force l'utilisation d'**ox_target** |
+| `'qb-target'` | Force l'utilisation de **qb-target** |
+| `'interact'` | Force l'utilisation d'**interact** (Renewed) |
+| `false` | Désactivé — interaction via la **touche E** uniquement |
 
-> Si ox_target n'est pas détecté, le script utilise automatiquement la touche E comme fallback.
+L'ordre de détection en mode `'auto'` est : ox_target → qb-target → interact.
+
+> Si le système de ciblage configuré n'est pas détecté, le script utilise automatiquement la touche E comme fallback.
 
 ## Animation de téléportation
 

@@ -2,7 +2,7 @@
 title: "Configuration"
 description: "Elevator Builder script configuration guide"
 script: "foltone-elevator-builder"
-section: "foltone_elevator_builder"
+section: "Elevator Builder"
 order: 2
 version: "1.1.0"
 ---
@@ -55,20 +55,25 @@ Config.interaction_distance = 3.5
 | Parameter | Description |
 |-----------|-------------|
 | `marker_render_distance` | Distance (in meters) at which the marker is displayed |
-| `interaction_distance` | Distance at which the player can interact (E key or ox_target) |
+| `interaction_distance` | Distance at which the player can interact (E key or target system) |
 
-## Target System (ox_target)
+## Target System
 
 ```lua
-Config.use_target = false
+Config.use_target = 'auto'
 ```
 
 | Value | Behavior |
 |-------|----------|
-| `false` | Interaction via **E key** (default behavior) |
-| `true` | Interaction via **ox_target** (requires ox_target installed) |
+| `'auto'` | **Auto-detect** — uses the first available target system (default) |
+| `'ox_target'` | Force **ox_target** |
+| `'qb-target'` | Force **qb-target** |
+| `'interact'` | Force **interact** (Renewed) |
+| `false` | Disabled — interaction via **E key** only |
 
-> If ox_target is not detected, the script automatically falls back to E key interaction.
+Detection order in `'auto'` mode: ox_target → qb-target → interact.
+
+> If the configured target system is not detected, the script automatically falls back to E key interaction.
 
 ## Teleport Animation
 

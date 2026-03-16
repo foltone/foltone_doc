@@ -2,7 +2,7 @@
 title: "Configuración"
 description: "Guía de configuración del script Elevator Builder"
 script: "foltone-elevator-builder"
-section: "foltone_elevator_builder"
+section: "Elevator Builder"
 order: 2
 version: "1.1.0"
 ---
@@ -55,20 +55,25 @@ Config.interaction_distance = 3.5
 | Parámetro | Descripción |
 |-----------|-------------|
 | `marker_render_distance` | Distancia (en metros) a la que se muestra el marcador |
-| `interaction_distance` | Distancia a la que el jugador puede interactuar (tecla E u ox_target) |
+| `interaction_distance` | Distancia a la que el jugador puede interactuar (tecla E o sistema de objetivo) |
 
-## Sistema de objetivo (ox_target)
+## Sistema de objetivo
 
 ```lua
-Config.use_target = false
+Config.use_target = 'auto'
 ```
 
 | Valor | Comportamiento |
 |-------|---------------|
-| `false` | Interacción mediante la **tecla E** (comportamiento por defecto) |
-| `true` | Interacción mediante **ox_target** (requiere ox_target instalado) |
+| `'auto'` | **Detección automática** — usa el primer sistema de objetivo disponible (por defecto) |
+| `'ox_target'` | Fuerza el uso de **ox_target** |
+| `'qb-target'` | Fuerza el uso de **qb-target** |
+| `'interact'` | Fuerza el uso de **interact** (Renewed) |
+| `false` | Desactivado — interacción mediante la **tecla E** únicamente |
 
-> Si ox_target no se detecta, el script usa automáticamente la tecla E como alternativa.
+Orden de detección en modo `'auto'`: ox_target → qb-target → interact.
+
+> Si el sistema de objetivo configurado no se detecta, el script usa automáticamente la tecla E como alternativa.
 
 ## Animación de teletransporte
 
