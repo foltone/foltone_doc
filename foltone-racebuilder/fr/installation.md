@@ -4,7 +4,7 @@ description: "Guide d'installation du Race Builder"
 script: "foltone-racebuilder"
 section: "Race Builder"
 order: 1
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Installation — foltone_racebuilder

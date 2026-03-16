@@ -4,7 +4,7 @@ description: "Race Builder features overview"
 script: "foltone-racebuilder"
 section: "Race Builder"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Features — foltone_racebuilder
@@ -18,8 +18,11 @@ version: "1.0.0"
 - **Adjustable checkpoint size** — Scroll wheel to resize each checkpoint individually
 - **Checkpoint rotation** — Q/E keys to rotate checkpoint heading
 - **Checkpoint manager** — Enter key opens a menu to reorder, teleport, delete checkpoints
+- **Edit race properties** — Change name, vehicle, race type, laps and max players on existing races from the checkpoint manager
+- **Start/finish marker preview** — Live checkpoint marker visible during spawn placement
+- **Improved grid preview** — Circular markers with numbered positions for the start grid
 - **Test race** — Test your race directly from the editor
-- **Edit existing races** — Load and modify any saved race
+- **Edit existing races** — Load any saved race, opens the checkpoint manager directly
 - **AZERTY/QWERTY auto-detection**
 
 ## Race Modes

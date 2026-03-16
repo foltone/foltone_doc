@@ -4,7 +4,7 @@ description: "Race Builder configuration reference"
 script: "foltone-racebuilder"
 section: "Race Builder"
 order: 2
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Configuration — foltone_racebuilder
@@ -42,11 +42,10 @@ All configuration is in `config.lua`. This file is not encrypted and can be free
 | `Config.Checkpoint.Color` | `{r=45, g=110, b=185, a=200}` | Normal checkpoint color (RGBA) |
 | `Config.Checkpoint.FinishColor` | `{r=53, g=154, b=71, a=255}` | Finish checkpoint color (RGBA) |
 | `Config.Checkpoint.CylinderZOffset` | `0.05` | Ground cylinder Z offset |
-| `Config.Checkpoint.IconZOffset` | `2.0` | Icon height above checkpoint |
+| `Config.Checkpoint.IconZOffset` | `3.0` | Icon height above checkpoint |
 | `Config.Checkpoint.IconSizeRatio` | `0.2` | Icon size = diameter × ratio |
 | `Config.Checkpoint.IconType` | `2` | DrawMarker type for arrow (2 = arrow) |
 | `Config.Checkpoint.FinishIconType` | `4` | DrawMarker type for finish (4 = checkered) |
-| `Config.Checkpoint.ShowIconRing` | `true` | Show cylinder ring behind the icon |
 
 ## Checkpoint GPS Blip
 
@@ -64,6 +63,7 @@ All configuration is in `config.lua`. This file is not encrypted and can be free
 | `Config.StartGrid.ColumnSpacing` | `3.5` | Lateral spacing between columns (meters) |
 | `Config.StartGrid.RowSpacing` | `8.0` | Spacing between rows (meters) |
 | `Config.StartGrid.StaggerOffset` | `4.0` | Right column stagger offset (meters) |
+| `Config.StartGrid.StartOffset` | `12.0` | Distance between start line and first car row (meters) |
 | `Config.StartGrid.PreviewSlots` | `10` | Slots shown in editor preview |
 
 ## Race Settings

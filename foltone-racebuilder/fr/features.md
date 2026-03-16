@@ -4,7 +4,7 @@ description: "Aperçu des fonctionnalités du Race Builder"
 script: "foltone-racebuilder"
 section: "Race Builder"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Fonctionnalités — foltone_racebuilder
@@ -18,8 +18,11 @@ version: "1.0.0"
 - **Taille ajustable** — Molette pour redimensionner chaque checkpoint individuellement
 - **Rotation** — Touches Q/E pour orienter le checkpoint
 - **Gestionnaire de checkpoints** — Touche Entrée pour réordonner, téléporter, supprimer
+- **Modification des propriétés** — Changez le nom, véhicule, type de course, tours et max joueurs sur les courses existantes depuis le gestionnaire de checkpoints
+- **Aperçu du marker départ/arrivée** — Marker de checkpoint visible en temps réel pendant le placement du spawn
+- **Aperçu de grille amélioré** — Markers circulaires avec positions numérotées pour la grille de départ
 - **Test de course** — Testez directement depuis l'éditeur
-- **Modification** — Chargez et modifiez n'importe quelle course sauvegardée
+- **Modification** — Chargez n'importe quelle course sauvegardée, ouvre directement le gestionnaire de checkpoints
 - **Détection AZERTY/QWERTY automatique**
 
 ## Modes de course
