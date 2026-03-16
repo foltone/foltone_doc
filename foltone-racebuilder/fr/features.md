@@ -2,7 +2,7 @@
 title: "Fonctionnalités"
 description: "Aperçu des fonctionnalités du Race Builder"
 script: "foltone-racebuilder"
-section: "foltone_racebuilder"
+section: "Race Builder"
 order: 3
 version: "1.0.0"
 ---

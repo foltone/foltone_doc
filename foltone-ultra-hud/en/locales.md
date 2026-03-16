@@ -2,7 +2,7 @@
 title: "Locales"
 description: "Ultra HUD translation system"
 script: "foltone-ultra-hud"
-section: "foltone_ultra_hud"
+section: "Ultra HUD"
 order: 5
 version: "1.0.0"
 ---

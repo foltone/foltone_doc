@@ -2,7 +2,7 @@
 title: "Configuration"
 description: "Ultra HUD configuration reference"
 script: "foltone-ultra-hud"
-section: "foltone_ultra_hud"
+section: "Ultra HUD"
 order: 2
 version: "1.0.0"
 ---

@@ -2,7 +2,7 @@
 title: "Usage"
 description: "Props Storage script usage guide"
 script: "foltone-props-storage"
-section: "foltone_props_storage"
+section: "Props Storage"
 order: 3
 version: "1.0.0"
 ---

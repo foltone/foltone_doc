@@ -2,7 +2,7 @@
 title: "Configuration"
 description: "Configuration du script Foltone Banking"
 script: "foltone-banking"
-section: "foltone_banking"
+section: "Banking"
 order: 2
 version: "1.0.0"
 ---

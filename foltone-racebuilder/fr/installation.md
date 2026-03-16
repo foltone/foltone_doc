@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Guide d'installation du Race Builder"
 script: "foltone-racebuilder"
-section: "foltone_racebuilder"
+section: "Race Builder"
 order: 1
 version: "1.0.0"
 ---

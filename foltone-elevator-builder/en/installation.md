@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Elevator Builder script installation guide"
 script: "foltone-elevator-builder"
-section: "foltone_elevator_builder"
+section: "Elevator Builder"
 order: 1
 version: "1.1.0"
 ---

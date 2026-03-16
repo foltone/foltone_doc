@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Props Storage script installation guide"
 script: "foltone-props-storage"
-section: "foltone_props_storage"
+section: "Props Storage"
 order: 1
 version: "1.0.0"
 ---

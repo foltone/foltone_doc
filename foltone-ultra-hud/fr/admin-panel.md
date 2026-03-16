@@ -2,7 +2,7 @@
 title: "Panneau Admin"
 description: "Guide d'utilisation du panneau admin Ultra HUD"
 script: "foltone-ultra-hud"
-section: "foltone_ultra_hud"
+section: "Ultra HUD"
 order: 4
 version: "1.0.0"
 ---

@@ -2,7 +2,7 @@
 title: "Features"
 description: "Race Builder features overview"
 script: "foltone-racebuilder"
-section: "foltone_racebuilder"
+section: "Race Builder"
 order: 3
 version: "1.0.0"
 ---

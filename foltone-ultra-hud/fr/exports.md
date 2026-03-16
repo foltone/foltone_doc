@@ -2,7 +2,7 @@
 title: "Exports & Events"
 description: "Reference API Ultra HUD pour developpeurs"
 script: "foltone-ultra-hud"
-section: "foltone_ultra_hud"
+section: "Ultra HUD"
 order: 3
 version: "1.0.0"
 ---

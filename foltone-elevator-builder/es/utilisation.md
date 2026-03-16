@@ -2,7 +2,7 @@
 title: "Uso"
 description: "Guía de uso del script Elevator Builder"
 script: "foltone-elevator-builder"
-section: "foltone_elevator_builder"
+section: "Elevator Builder"
 order: 3
 version: "1.1.0"
 ---

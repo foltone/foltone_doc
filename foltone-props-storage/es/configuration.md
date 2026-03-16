@@ -2,7 +2,7 @@
 title: "Configuración"
 description: "Guía de configuración del script Props Storage"
 script: "foltone-props-storage"
-section: "foltone_props_storage"
+section: "Props Storage"
 order: 2
 version: "1.0.0"
 ---

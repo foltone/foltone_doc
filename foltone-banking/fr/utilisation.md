@@ -2,7 +2,7 @@
 title: "Utilisation"
 description: "Guide d'utilisation du script Foltone Banking"
 script: "foltone-banking"
-section: "foltone_banking"
+section: "Banking"
 order: 3
 version: "1.0.0"
 ---

@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Job Manager script installation guide"
 script: "foltone-job-manager"
-section: "foltone_job_manager"
+section: "Job Manager"
 order: 1
 version: "1.0.0"
 ---

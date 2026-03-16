@@ -2,7 +2,7 @@
 title: "Configuration"
 description: "Référence de configuration du Race Builder"
 script: "foltone-racebuilder"
-section: "foltone_racebuilder"
+section: "Race Builder"
 order: 2
 version: "1.0.0"
 ---

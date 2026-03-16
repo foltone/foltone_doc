@@ -2,7 +2,7 @@
 title: "Utilisation"
 description: "Guide d'utilisation du script Job Manager"
 script: "foltone-job-manager"
-section: "foltone_job_manager"
+section: "Job Manager"
 order: 3
 version: "1.0.0"
 ---

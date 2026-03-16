@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Ultra HUD installation guide"
 script: "foltone-ultra-hud"
-section: "foltone_ultra_hud"
+section: "Ultra HUD"
 order: 1
 version: "1.0.0"
 ---
