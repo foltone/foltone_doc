@@ -4,14 +4,14 @@ description: "Usage guide for Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Usage — foltone_cctv
 
 ## Overview
 
-Foltone CCTV is a complete surveillance camera system for FiveM. Players can buy, place, and manage security cameras with real-time viewing, motion detection, job sharing, and screenshot capture. The script supports 5 camera types, each with unique props, optics, and pricing.
+Foltone CCTV is a complete surveillance camera system for FiveM. Players can buy, place, and manage security cameras with real-time viewing, motion detection, job sharing, and screenshot capture. The script supports 4 camera types, each with unique props, optics, and pricing.
 
 ## Buying cameras
 
@@ -60,7 +60,7 @@ Interact with fixed computer positions to open the panel. The player plays a typ
 
 ### Monitoring stations
 
-Interact with `prop_cctv_unit_01` stations at configured positions. Same functionality as tablets.
+Monitoring stations can be purchased from the shop and placed in the world using the item. They can also be set at fixed positions in the config. Interact with them to open the camera panel. Same functionality as tablets.
 
 ## Surveillance panel
 
@@ -95,6 +95,7 @@ View and manage screenshots taken from cameras:
 - Thumbnail preview (if `screenshot-basic` is configured)
 - Camera name and capture timestamp
 - **Delete** button to remove captures
+- **Click on a capture** to view it fullscreen in a lightbox with camera name and date
 
 ## Camera view
 
@@ -178,7 +179,7 @@ To add a new camera type:
 
 1. Add a new entry to `Config.CameraTypes` in `config.lua`
 2. Create the corresponding inventory item in your inventory system
-3. Optionally add an SVG image at `client/nui/img/cam_<id>.svg`
+3. Optionally add a PNG image at `client/nui/img/<image>.png` (matching the `image` field in config)
 4. Use `/cctv_debug` in-game to calibrate the camera offset
 
 The shop and placement system automatically pick up new types from the config.

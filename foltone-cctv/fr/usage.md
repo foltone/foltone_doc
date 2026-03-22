@@ -4,14 +4,14 @@ description: "Guide d'utilisation de Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Utilisation — foltone_cctv
 
 ## Presentation
 
-Foltone CCTV est un systeme de cameras de surveillance complet pour FiveM. Les joueurs peuvent acheter, placer et gerer des cameras de securite avec visualisation en temps reel, detection de mouvement, partage par job et capture d'ecran. Le script propose 5 types de cameras, chacun avec des props, optiques et prix uniques.
+Foltone CCTV est un systeme de cameras de surveillance complet pour FiveM. Les joueurs peuvent acheter, placer et gerer des cameras de securite avec visualisation en temps reel, detection de mouvement, partage par job et capture d'ecran. Le script propose 4 types de cameras, chacun avec des props, optiques et prix uniques.
 
 ## Acheter des cameras
 
@@ -60,7 +60,7 @@ Interagissez avec les positions d'ordinateurs fixes pour ouvrir le panneau. Le j
 
 ### Postes de surveillance
 
-Interagissez avec les stations `prop_cctv_unit_01` aux positions configurees. Meme fonctionnalite que la tablette.
+Les postes de surveillance peuvent etre achetes en boutique et places dans le monde en utilisant l'item. Ils peuvent aussi etre configures a des positions fixes dans le config. Interagissez avec pour ouvrir le panneau de surveillance. Meme fonctionnalite que la tablette.
 
 ## Panneau de surveillance
 
@@ -95,6 +95,7 @@ Visualisez et gerez les captures d'ecran des cameras :
 - Apercu miniature (si `screenshot-basic` est configure)
 - Nom de la camera et horodatage
 - Bouton **Supprimer** pour effacer les captures
+- **Cliquez sur une capture** pour la voir en plein ecran dans un lightbox avec nom de camera et date
 
 ## Vue camera
 
@@ -178,7 +179,7 @@ Pour ajouter un nouveau type de camera :
 
 1. Ajoutez une entree dans `Config.CameraTypes` dans `config.lua`
 2. Creez l'item correspondant dans votre systeme d'inventaire
-3. Optionnellement, ajoutez une image SVG dans `client/nui/img/cam_<id>.svg`
+3. Optionnellement, ajoutez une image PNG dans `client/nui/img/<image>.png` (correspondant au champ `image` du config)
 4. Utilisez `/cctv_debug` en jeu pour calibrer l'offset camera
 
 La boutique et le systeme de placement prennent automatiquement en compte les nouveaux types depuis le config.

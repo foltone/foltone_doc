@@ -4,7 +4,7 @@ description: "Guia de instalacion de Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 1
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Instalacion — foltone_cctv
@@ -77,14 +77,13 @@ Necesitas registrar los siguientes objetos en tu sistema de inventario (ox_inven
 | Nombre del objeto | Proposito |
 |-----------|---------|
 | `cctv_tablet` | Tablet de vigilancia — abre el panel de camaras |
-| `cctv_station` | Estacion de monitoreo — abre el panel de camaras |
-| `cctv_cam_standard` | Camara Standard — CCTV montada en pared |
-| `cctv_cam_dome` | Camara Dome — gran angular 360 |
+| `cctv_station` | Estacion de monitoreo — objeto colocable que abre el panel de camaras |
+| `cctv_cam_standard` | Camara Standard — CCTV clasica de pared |
 | `cctv_cam_bullet` | Camara Bullet — zoom de largo alcance |
 | `cctv_cam_mini` | Camara Mini Bullet — compacta y discreta |
-| `cctv_cam_ptz` | Camara PTZ Pro — pan-tilt-zoom profesional |
+| `cctv_cam_shop` | Camara Shop Cam — PTZ 360 para tiendas |
 
-> Cada tipo de camara tiene su propio objeto. Usar el objeto inicia el modo de colocacion para ese tipo especifico de camara.
+> Cada tipo de camara tiene su propio objeto. Usar el objeto inicia el modo de colocacion para ese tipo especifico de camara. El objeto de estacion tambien inicia un modo de colocacion en el suelo.
 
 ## Verificacion
 

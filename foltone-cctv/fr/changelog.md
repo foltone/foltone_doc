@@ -4,10 +4,42 @@ description: "Historique des versions de Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 99
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Changelog — foltone_cctv
+
+## 1.1.0 — 2026-03-22
+
+### Ajouts
+- Accessoires boutique : tablette et moniteur de surveillance disponibles a l'achat
+- Le moniteur de surveillance est maintenant un item placable (comme les cameras) qui ouvre l'interface quand on interagit avec
+- Lightbox captures : cliquez sur une capture pour la voir en plein ecran avec nom de camera et date
+- Parametres d'offset `propPitch` et `propRoll` pour la correction de rotation des props
+- Champs `wallOffset` et `image` dans la configuration des types de cameras
+- Section `Config.ShopAccessories` pour les accessoires en boutique
+
+### Modifications
+- Types de cameras mis a jour : 4 types (Standard, Bullet, Mini Bullet, Shop Cam) remplacant les 5 precedents
+- Les images de la boutique utilisent des fichiers PNG depuis le champ `image` du config au lieu de SVG
+- Systeme de notification refactorise : `ClientNotification` dans config.lua (cote client, personnalisable) + le serveur declenche un event client
+- SQL getCameras optimise : remplacement des requetes N+1 par une seule sous-requete IN
+- install.sql mis a jour avec la table stations, toutes les colonnes et les index
+- Delai d'achat reduit entre les achats en boutique
+- Toutes les chaines UI traduites en anglais
+
+### Corrections
+- Correction de requestCapture qui ne validait pas la propriete/acces a la camera
+- Correction de destroyCamera permettant l'abus a distance (ajout verification de distance)
+- Correction de vulnerabilite XSS : remplacement des onclick inline par data-attributes + event delegation
+- Correction de la fuite memoire motionCooldowns quand les cameras sont supprimees
+- Correction des entrees d'acces non nettoyees quand une camera est supprimee
+- Correction des migrations ALTER TABLE utilisant async au lieu de await
+- Correction du mismatch CAM_TYPE_ICONS (supprime dome/ptz, ajoute shop_cam)
+- Correction de l'alignement icone+texte des boutons dans toute l'interface
+- Correction de l'achat du moniteur en boutique qui donnait le mauvais item
+- Correction de l'erreur de contenu mixte HTTPS de screenshot-basic
+- Commande cctv_debug deplacee derriere une verification de permission admin
 
 ## 1.0.0 — 2026-03-18
 

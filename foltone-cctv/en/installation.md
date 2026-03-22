@@ -4,7 +4,7 @@ description: "Installation guide for Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 1
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Installation — foltone_cctv
@@ -77,14 +77,13 @@ You need to register the following items in your inventory system (ox_inventory,
 | Item name | Purpose |
 |-----------|---------|
 | `cctv_tablet` | Surveillance tablet — opens the camera panel |
-| `cctv_station` | Monitoring station — opens the camera panel |
-| `cctv_cam_standard` | Standard camera — wall-mounted CCTV |
-| `cctv_cam_dome` | Dome camera — 360 wide-angle |
+| `cctv_station` | Monitoring station — placeable item that opens the camera panel |
+| `cctv_cam_standard` | Standard camera — classic wall-mounted CCTV |
 | `cctv_cam_bullet` | Bullet camera — long-range zoom |
 | `cctv_cam_mini` | Mini Bullet camera — compact and discreet |
-| `cctv_cam_ptz` | PTZ Pro camera — pan-tilt-zoom professional |
+| `cctv_cam_shop` | Shop Cam camera — PTZ 360 for stores |
 
-> Each camera type has its own item. Using the item starts the placement mode for that specific camera type.
+> Each camera type has its own item. Using the item starts the placement mode for that specific camera type. The station item also starts a ground-based placement mode.
 
 ## Verification
 

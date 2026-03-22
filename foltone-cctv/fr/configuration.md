@@ -4,7 +4,7 @@ description: "Guide de configuration de Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 2
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Configuration — foltone_cctv
@@ -41,6 +41,33 @@ Config.StationProp = "prop_cctv_unit_01"
 | `StationItem` | string | Nom de l'item station de surveillance |
 | `StationProp` | string | Modele du prop GTA pour les stations fixes |
 
+## Accessoires boutique
+
+```lua
+Config.ShopAccessories = {
+    {
+        id = "tablet",
+        item = "cctv_tablet",
+        label = "CCTV Tablet",
+        image = "tablet.png",
+        description = "Portable tablet to check your cameras remotely.",
+        specs = { "PORTABLE", "WIRELESS" },
+        price = 2000,
+    },
+    {
+        id = "station",
+        item = "cctv_station",
+        label = "CCTV Monitor",
+        image = "station.png",
+        description = "Fixed control station to monitor all your cameras.",
+        specs = { "HD SCREEN", "MULTI-CAM" },
+        price = 5000,
+    },
+}
+```
+
+Les accessoires sont affiches aux cotes des cameras dans la boutique. L'item station peut etre place dans le monde en utilisant l'item.
+
 ## Types de cameras
 
 ```lua
@@ -62,15 +89,19 @@ Chaque entree dans `Config.CameraTypes` definit un modele de camera :
     id = "standard",
     item = "cctv_cam_standard",
     label = "Standard",
-    description = "Camera murale classique.",
+    image = "standard.png",
+    description = "Classic wall camera. Reliable and discreet.",
     specs = { "FOV 70", "ZOOM x4", "60 FPS" },
-    prop = "prop_cctv_cam_01a",
+    prop = "prop_cctv_cam_03a",
     price = 3000,
+    wallOffset = 0.0,
     offset = {
-        pos = vector3(-0.13, 0.61, 0.21),
-        pitch = -16.9,
-        yaw = 40.0,
-        propYaw = 180.0,
+        pos = vector3(0.45, 0.37, 0.35),
+        pitch = 1.3,
+        yaw = -56.3,
+        propPitch = 0.0,
+        propRoll = 0.0,
+        propYaw = 170.0,
     },
     fov = { default = 70.0, min = 25.0, max = 100.0 },
     zoomStep = 5.0,
@@ -88,9 +119,13 @@ Chaque entree dans `Config.CameraTypes` definit un modele de camera :
 | `specs` | table | Badges de specs affiches dans la boutique |
 | `prop` | string | Nom du modele prop GTA |
 | `price` | number | Prix d'achat en boutique |
+| `image` | string | Nom du fichier PNG dans `client/nui/img/` pour l'affichage boutique |
+| `wallOffset` | number | Distance d'offset depuis la surface du mur |
 | `offset.pos` | vector3 | Offset de position de la vue camera (avant, gauche, haut) |
 | `offset.pitch` | number | Offset de pitch de la vue (degres) |
 | `offset.yaw` | number | Offset de yaw de la vue (degres) |
+| `offset.propPitch` | number | Correction de rotation pitch du prop (degres) |
+| `offset.propRoll` | number | Correction de rotation roll du prop (degres) |
 | `offset.propYaw` | number | Offset de rotation du prop par rapport a la direction de vue (degres) |
 | `fov.default` | number | Champ de vision par defaut (degres) |
 | `fov.min` | number | FOV minimum (zoom max) |
@@ -103,11 +138,10 @@ Chaque entree dans `Config.CameraTypes` definit un modele de camera :
 
 | ID | Prop | Prix | FOV | Description |
 |----|------|------|-----|-------------|
-| `standard` | `prop_cctv_cam_01a` | $3 000 | 70 | Camera murale classique |
-| `dome` | `prop_cctv_cam_02a` | $5 500 | 90 | Dome grand angle 360 |
+| `standard` | `prop_cctv_cam_03a` | $3 000 | 70 | Camera murale classique |
 | `bullet` | `prop_cctv_cam_04b` | $4 000 | 55 | Longue portee, zoom puissant |
 | `mini_bullet` | `hei_prop_bank_cctv_02` | $3 500 | 55 | Compacte et discrete |
-| `ptz` | `prop_cctv_cam_05a` | $8 000 | 60 | Pan-Tilt-Zoom professionnelle |
+| `shop_cam` | `m24_1_prop_m24_1_carrier_bank_cctv_01` | $8 000 | 60 | Camera boutique avec PTZ 360 |
 
 ### Calibrer les offsets
 
@@ -259,7 +293,9 @@ Config.Marker = {
 ## Notifications
 
 ```lua
-function Notification(source, message, type)
+function ClientNotification(message, type)
+    exports['ox_inventory']:Notification(message)
+end
 ```
 
-Surchargez cette fonction dans `config.lua` pour utiliser votre propre systeme de notification.
+Surchargez cette fonction dans `config.lua` pour utiliser votre propre systeme de notification. Le serveur declenche l'event client `foltone_cctv:notify` qui appelle cette fonction.

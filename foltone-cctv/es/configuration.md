@@ -4,7 +4,7 @@ description: "Guia de configuracion de Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 2
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Configuracion — foltone_cctv
@@ -41,6 +41,33 @@ Config.StationProp = "prop_cctv_unit_01"
 | `StationItem` | string | Nombre del objeto de inventario para la estacion de monitoreo |
 | `StationProp` | string | Modelo de prop de GTA para objetos de estacion fija |
 
+## Accesorios de tienda
+
+```lua
+Config.ShopAccessories = {
+    {
+        id = "tablet",
+        item = "cctv_tablet",
+        label = "CCTV Tablet",
+        image = "tablet.png",
+        description = "Portable tablet to check your cameras remotely.",
+        specs = { "PORTABLE", "WIRELESS" },
+        price = 2000,
+    },
+    {
+        id = "station",
+        item = "cctv_station",
+        label = "CCTV Monitor",
+        image = "station.png",
+        description = "Fixed control station to monitor all your cameras.",
+        specs = { "HD SCREEN", "MULTI-CAM" },
+        price = 5000,
+    },
+}
+```
+
+Los accesorios se muestran junto a las camaras en la tienda. El objeto de estacion se puede colocar en el mundo usando el objeto.
+
 ## Tipos de camara
 
 ```lua
@@ -62,15 +89,19 @@ Cada entrada en `Config.CameraTypes` define un modelo de camara:
     id = "standard",
     item = "cctv_cam_standard",
     label = "Standard",
-    description = "Classic wall-mounted surveillance camera.",
+    image = "standard.png",
+    description = "Classic wall camera. Reliable and discreet.",
     specs = { "FOV 70", "ZOOM x4", "60 FPS" },
-    prop = "prop_cctv_cam_01a",
+    prop = "prop_cctv_cam_03a",
     price = 3000,
+    wallOffset = 0.0,
     offset = {
-        pos = vector3(-0.13, 0.61, 0.21),
-        pitch = -16.9,
-        yaw = 40.0,
-        propYaw = 180.0,
+        pos = vector3(0.45, 0.37, 0.35),
+        pitch = 1.3,
+        yaw = -56.3,
+        propPitch = 0.0,
+        propRoll = 0.0,
+        propYaw = 170.0,
     },
     fov = { default = 70.0, min = 25.0, max = 100.0 },
     zoomStep = 5.0,
@@ -88,9 +119,13 @@ Cada entrada en `Config.CameraTypes` define un modelo de camara:
 | `specs` | table | Array de insignias de especificaciones mostradas en la tienda (ej. "FOV 70") |
 | `prop` | string | Nombre del modelo de prop de GTA |
 | `price` | number | Precio de compra en la tienda |
+| `image` | string | Nombre del archivo PNG en `client/nui/img/` para la visualizacion en tienda |
+| `wallOffset` | number | Distancia de offset desde la superficie de la pared |
 | `offset.pos` | vector3 | Offset de posicion de la vista de camara (adelante, izquierda, arriba) relativo al prop |
 | `offset.pitch` | number | Offset de inclinacion de la vista de camara (grados) |
 | `offset.yaw` | number | Offset de orientacion de la vista de camara (grados) |
+| `offset.propPitch` | number | Correccion de rotacion pitch del prop (grados) |
+| `offset.propRoll` | number | Correccion de rotacion roll del prop (grados) |
 | `offset.propYaw` | number | Offset de rotacion del prop relativo a la direccion de vista de la camara (grados) |
 | `fov.default` | number | Campo de vision predeterminado (grados) |
 | `fov.min` | number | FOV minimo cuando se acerca el zoom |
@@ -103,11 +138,10 @@ Cada entrada en `Config.CameraTypes` define un modelo de camara:
 
 | ID | Prop | Precio | FOV | Descripcion |
 |----|------|--------|-----|-------------|
-| `standard` | `prop_cctv_cam_01a` | $3,000 | 70 | Camara clasica montada en pared |
-| `dome` | `prop_cctv_cam_02a` | $5,500 | 90 | Domo 360 gran angular |
+| `standard` | `prop_cctv_cam_03a` | $3,000 | 70 | Camara clasica de pared |
 | `bullet` | `prop_cctv_cam_04b` | $4,000 | 55 | Largo alcance con zoom potente |
 | `mini_bullet` | `hei_prop_bank_cctv_02` | $3,500 | 55 | Compacta y discreta |
-| `ptz` | `prop_cctv_cam_05a` | $8,000 | 60 | Pan-tilt-zoom profesional |
+| `shop_cam` | `m24_1_prop_m24_1_carrier_bank_cctv_01` | $8,000 | 60 | Camara de tienda con PTZ 360 |
 
 ### Calibracion de offsets
 
@@ -294,7 +328,9 @@ Config.Marker = {
 ## Notificaciones
 
 ```lua
-function Notification(source, message, type)
+function ClientNotification(message, type)
+    exports['ox_inventory']:Notification(message)
+end
 ```
 
-Sobrescribe esta funcion en `config.lua` para usar tu propio sistema de notificaciones.
+Sobrescribe esta funcion en `config.lua` para usar tu propio sistema de notificaciones. El servidor dispara el evento cliente `foltone_cctv:notify` que llama a esta funcion.

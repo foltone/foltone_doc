@@ -4,10 +4,42 @@ description: "Registro de cambios de Foltone CCTV"
 script: "foltone-cctv"
 section: "Foltone CCTV"
 order: 99
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Registro de cambios — foltone_cctv
+
+## 1.1.0 — 2026-03-22
+
+### Adiciones
+- Accesorios de tienda: tablet y estacion de monitoreo disponibles para compra
+- La estacion de monitoreo es ahora un objeto colocable (como las camaras) que abre la interfaz al interactuar
+- Lightbox de capturas: haz clic en una captura para verla en pantalla completa con nombre de camara y fecha
+- Parametros de offset `propPitch` y `propRoll` para correccion de rotacion de props
+- Campos `wallOffset` e `image` en la configuracion de tipos de camara
+- Seccion `Config.ShopAccessories` para accesorios de tienda
+
+### Cambios
+- Tipos de camara actualizados: 4 tipos (Standard, Bullet, Mini Bullet, Shop Cam) reemplazando los 5 anteriores
+- Las imagenes de la tienda ahora usan archivos PNG desde el campo `image` del config en lugar de SVG
+- Sistema de notificaciones refactorizado: `ClientNotification` en config.lua (lado cliente, personalizable) + el servidor dispara evento cliente
+- SQL getCameras optimizado: reemplazo de consultas N+1 por una sola subconsulta IN
+- install.sql actualizado con tabla de estaciones, todas las columnas e indices
+- Tiempo de espera entre compras reducido
+- Todas las cadenas de UI traducidas al ingles
+
+### Correcciones
+- Corregido requestCapture que no validaba propiedad/acceso a la camara
+- Corregido destroyCamera que permitia abuso remoto (agregada verificacion de distancia)
+- Corregida vulnerabilidad XSS: reemplazo de onclick inline por data-attributes + event delegation
+- Corregida fuga de memoria motionCooldowns al eliminar camaras
+- Corregidas entradas de acceso no limpiadas al eliminar una camara
+- Corregidas migraciones ALTER TABLE usando async en lugar de await
+- Corregido desajuste CAM_TYPE_ICONS (eliminados dome/ptz, agregado shop_cam)
+- Corregida alineacion icono+texto de botones en toda la interfaz
+- Corregida compra del monitor en tienda que otorgaba el objeto incorrecto
+- Corregido error de contenido mixto HTTPS de screenshot-basic
+- Comando cctv_debug movido detras de verificacion de permisos de admin
 
 ## 1.0.0 — 2026-03-18
 
