@@ -18,6 +18,7 @@ All settings are located in `config.lua`.
 | `Config.Framework` | string | `"esx"` | Framework to use: `"esx"`, `"qbcore"`, or `"qbx"` |
 | `Config.Locale` | string | `"en"` | Language: `"en"` or `"fr"` |
 | `Config.AutoUpdateCheck` | boolean | `true` | At startup, check whether a new version was published and print a notice in the server console |
+| `Config.UpdateCheckURL` | string | *(official GitHub)* | URL of the remote `version.json` to compare against the local version |
 
 ## Interaction
 
