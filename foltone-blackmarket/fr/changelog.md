@@ -4,10 +4,36 @@ description: "Historique des modifications du script foltone_blackmarket"
 script: "foltone-blackmarket"
 section: "Blackmarket"
 order: 4
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Changelog
+
+## v1.1.0 — Robustesse i18n + bugfixes
+
+### Ajoute
+- Locales **allemand** (`de.lua`) et **espagnol** (`es.lua`) complets
+- Nouvelles cles de traduction : `rui_price_format`, `rui_price_stock_format`, `rui_component_suffix`, `rui_tint_suffix`, `rui_weapon_list_title`, `ui_html_title`, `ui_close_tooltip`, `ui_select_weapon` (remplacent les chaines hardcodees du RageUI et du NUI)
+- Support de l'attribut HTML `data-i18n-title` dans le NUI (tooltips traduisibles)
+- Documentation `configuration.md` reecrite avec **tous** les Config options : modes `MenuType` (nui/rageui), variantes `TargetSystem`, themes RageUI (`classic`/`modern`) avec descriptions visuelles, bannieres disponibles, options NUI Preview 3D, VanCustom, comportement des portes, animations du ped, parametres du phone (rayons / jitter), categories, etc.
+- `version.json` consomme par le version check (`raw.githubusercontent.com/foltone/foltone_doc/main/foltone-blackmarket/version.json`)
+
+### Corrige
+- **NUI** : `RESOURCE_NAME` resolu via `GetParentResourceName()` → tous les callbacks JS↔Lua continuent de fonctionner si le serveur owner renomme le dossier de la ressource (sinon menu inerte, /restart obligatoire pour fermer le focus NUI)
+- **NUI** : `state.customWeaponFilter` est reset a chaque ouverture (evite reference stale vers une arme vendue/disparue si `DefaultCategory = 'customs'`)
+- **NUI** : guard `NUI.opening` contre les doubles ouvertures rapides (deux `getCatalog` en parallele)
+- **Serveur** : `getCatalog` envoie maintenant un payload locale **mergé** (en de base + locale active en override), donc une cle manquante dans une locale partielle retombe sur l'anglais au lieu d'apparaitre comme cle brute dans l'UI
+- **Serveur** : hot reload du resource (`ensure foltone_blackmarket` a chaud) re-broadcast l'etat aux joueurs deja co qui n'auraient pas le van
+- **Serveur** : `BM_State.heat` est reset a chaque spawn (evitait le persist d'un cycle a l'autre)
+- **Client** : timeout 30s + cleanup des callbacks serveur orphelins en cas de network drop, pcall autour de la callback pour ne pas crasher la queue
+- **Client** : log console une fois quand `Config.Locale` pointe vers une locale qui n'existe pas, avec liste des locales disponibles
+- **RageUI** : `fmtMoney` formate avec separateur de milliers (`$1,234,567`) comme le NUI
+- **Bridge** : `Bridge.HasItem` (ESX/QB) plus robuste si le player object n'est pas trouve
+- **Version check** : passe a un endpoint JSON (`json.decode` natif + fallback regex)
+
+### Securite mineure
+- `playerDropped` capture `source` dans une variable locale (bonne pratique)
+- `applyCustomToOxInventory` : retire un retour multi-valeur inutilise
 
 ## v1.0.0 — Sortie initiale
 
