@@ -4,7 +4,7 @@ description: "Guide d'installation du script barbershop"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 1
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Installation

@@ -4,7 +4,7 @@ description: "How to use the barbershop in game"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 3
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Usage

@@ -4,7 +4,7 @@ description: "Barbershop script configuration reference"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 2
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Configuration
@@ -17,7 +17,7 @@ All settings are located in `config.lua`.
 |--------|------|---------|-------------|
 | `Config.Framework` | string | `"esx"` | Framework to use: `"esx"`, `"qbcore"`, or `"qbx"` |
 | `Config.Locale` | string | `"en"` | Language: `"en"` or `"fr"` |
-| `Config.Debug` | boolean | `false` | Enable debug prints in the console |
+| `Config.AutoUpdateCheck` | boolean | `true` | At startup, check whether a new version was published and print a notice in the server console |
 
 ## Interaction
 

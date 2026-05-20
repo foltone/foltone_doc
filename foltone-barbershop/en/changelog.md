@@ -4,10 +4,34 @@ description: "Barbershop script version history"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 4
-version: "1.0.0"
+version: "1.1.0"
 ---
 
 # Changelog
+
+## v1.1.0
+
+NUI menu fixes, server hardening and update notifier.
+
+### NUI Menu
+- Renamed-resource compatibility: `GetParentResourceName()` is now used instead of a hardcoded name, so the resource folder can be renamed without breaking NUI callbacks
+- Fixed menu becoming unusable on second open: internal state (keyboard focus, current page, DOM content) is now reset on every open
+- Fixed the "ghost" highlighted cell that remained selected after closing the menu
+- Selection highlight now follows the mouse cursor: no more offset between the hovered cell and the highlighted cell
+- No more double highlight: only a single element can be marked active at a time
+- No more unwanted scroll on mouse hover: automatic `scrollIntoView` is disabled for mouse navigation (still kept for keyboard navigation)
+
+### Server hardening
+- Server-side `chairId` validation: only chair IDs defined in `Config.Positions` are accepted, preventing a malicious client from reserving phantom chairs
+- Payment now requires the player to actually be seated on a chair: any `pay` call without an active chair is rejected
+- Added rate-limit on the `releaseChair` event (consistency with `takeChair` and `pay`)
+
+### Configuration
+- New `Config.AutoUpdateCheck` option (default: `true`) to enable or disable the automatic update check at server startup
+- Removed `Config.Debug` (was never read by the script)
+
+### Update notifier
+- Automatic update notifier: the server compares the installed version with the latest published version and prints a console message when an update is available
 
 ## v1.0.0
 
