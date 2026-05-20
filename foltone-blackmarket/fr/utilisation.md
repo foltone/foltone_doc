@@ -4,7 +4,7 @@ description: "Guide d'utilisation du script foltone_blackmarket"
 script: "foltone-blackmarket"
 section: "Blackmarket"
 order: 3
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # Utilisation

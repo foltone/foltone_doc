@@ -4,10 +4,16 @@ description: "Change history for foltone_blackmarket script"
 script: "foltone-blackmarket"
 section: "Blackmarket"
 order: 4
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # Changelog
+
+## v1.1.1 — Follow-up fixes for v1.1.0
+
+### Fixed
+- **Hot reload** : `BM_State` is now persisted via `GlobalState['foltone_blackmarket:state']` and restored on resource start. The `onResourceStart` re-broadcast added in v1.1.0 was useless because Lua variables are reset on every resource reload — state is now **actually** recovered and already-connected players keep their van. The scheduler also skips the initial delay if a van was restored.
+- **Client callbacks** : the periodic sweep that drops expired callbacks (30s timeout) now notifies the caller with `nil` instead of silently deleting the entry. Without this, a single lost packet on NUI open left `NUI.opening = true` forever → menu impossible to reopen until /restart.
 
 ## v1.1.0 — i18n robustness + bugfixes
 

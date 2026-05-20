@@ -4,7 +4,7 @@ description: "Configuration guide for foltone_blackmarket script"
 script: "foltone-blackmarket"
 section: "Blackmarket"
 order: 2
-version: "1.1.0"
+version: "1.1.1"
 ---
 
 # Configuration
