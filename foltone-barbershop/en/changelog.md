@@ -4,10 +4,18 @@ description: "Barbershop script version history"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 4
-version: "1.1.0"
+version: "1.2.0"
 ---
 
 # Changelog
+
+## v1.2.0
+
+Added a secondary color for hair and beard.
+
+### Customization
+- New **secondary color** (`Color 2`) for hair and beard: the primary and secondary colors can now be set independently, enabling gradients and highlights
+- New locale key `color2` ("Color 2" / "Couleur 2")
 
 ## v1.1.0
 

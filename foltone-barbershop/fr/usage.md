@@ -4,7 +4,7 @@ description: "Comment utiliser le barbershop en jeu"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 3
-version: "1.1.0"
+version: "1.2.0"
 ---
 
 # Utilisation
@@ -41,6 +41,7 @@ Chaque catégorie propose les contrôles suivants selon le type :
 
 - **Grille de styles** — parcourez visuellement tous les styles disponibles
 - **Sélecteur de couleur** — choisissez la couleur principale
+- **Sélecteur de couleur secondaire (`Couleur 2`)** — choisissez une teinte secondaire (disponible pour les cheveux et la barbe)
 - **Curseur d'opacité** — ajustez la transparence (disponible pour la barbe, les sourcils et le maquillage)
 
 Les modifications sont prévisualisées en temps réel sur votre personnage pendant la navigation.

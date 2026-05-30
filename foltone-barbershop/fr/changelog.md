@@ -4,10 +4,18 @@ description: "Historique des versions du script barbershop"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 4
-version: "1.1.0"
+version: "1.2.0"
 ---
 
 # Changelog
+
+## v1.2.0
+
+Ajout d'une couleur secondaire pour les cheveux et la barbe.
+
+### Personnalisation
+- Nouvelle **couleur secondaire** (`Couleur 2`) pour les cheveux et la barbe : la couleur principale et la couleur secondaire se règlent désormais indépendamment, permettant des dégradés et des mèches
+- Nouvelle clé de locale `color2` (« Couleur 2 » / « Color 2 »)
 
 ## v1.1.0
 

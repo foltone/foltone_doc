@@ -4,7 +4,7 @@ description: "How to use the barbershop in game"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 3
-version: "1.1.0"
+version: "1.2.0"
 ---
 
 # Usage
@@ -29,8 +29,8 @@ The barbershop menu has **5 categories**:
 
 | Category | What it changes |
 |----------|----------------|
-| **Hair** | Hairstyle and hair color |
-| **Beard** | Beard style, color, and opacity |
+| **Hair** | Hairstyle, primary color, and secondary color |
+| **Beard** | Beard style, primary color, secondary color, and opacity |
 | **Eyebrows** | Eyebrow style, color, and opacity |
 | **Eyes** | Eye color |
 | **Makeup** | Makeup style, color, and opacity |
@@ -41,6 +41,7 @@ Each category provides the following controls depending on the type:
 
 - **Style grid** — browse all available styles visually
 - **Color picker** — choose the primary color
+- **Secondary color picker (`Color 2`)** — choose a secondary tint (available for hair and beard)
 - **Opacity slider** — adjust transparency (available for beard, eyebrows, and makeup)
 
 Changes are previewed in real time on your character as you browse.

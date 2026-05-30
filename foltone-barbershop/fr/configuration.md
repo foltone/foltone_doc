@@ -4,7 +4,7 @@ description: "Référence de configuration du script barbershop"
 script: "foltone-barbershop"
 section: "Barbershop"
 order: 2
-version: "1.1.0"
+version: "1.2.0"
 ---
 
 # Configuration
